@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import telegram_sender
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
@@ -18,8 +19,8 @@ try:
             diff = int(current_time - start_time)
             print(f"One of steering buttons is not pressed for {diff} seconds")
             if diff >= gear_time or ((GPIO.input(15) == GPIO.LOW) and (GPIO.input(16) == GPIO.LOW)):
-                if diff % 10 == 0 or diff == gear_time or ((GPIO.input(15) == GPIO.LOW) and (GPIO.input(16) == GPIO.LOW)):
-                    print("Hamza HEllo")
+                if diff % 10 == 0 or diff == gear_time:
+                    telegram_sender.sendMessage("The driver is not driving safely!")
                 GPIO.output(29, 1)
                 GPIO.output(31, 1)
         else:
