@@ -55,9 +55,9 @@ while True:
             print(diff)
             if diff == time_diff:
                 telegram_sender.sendMessage("Unauthorized Driver!")
-                cv2.imwrite('./grad-pro/temp.jpg',frame)
-                telegram_sender.sendPhoto(open('./grad-pro/temp.jpg','rb'))
-                os.remove('./grad-pro/temp.jpg')
+                cv2.imwrite('temp.jpg',frame)
+                telegram_sender.sendPhoto(open('temp.jpg','rb'))
+                os.remove('temp.jpg')
                 start_time = time.time()
     process_this_frame = not process_this_frame
 
