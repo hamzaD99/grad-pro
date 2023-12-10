@@ -13,17 +13,23 @@ start_time = time.time()
 gear_time = 5
 try:
     while True:
+        GPIO.output(29, 0)
+        GPIO.output(31, 0)
         if (GPIO.input(15) == GPIO.LOW) or (GPIO.input(16) == GPIO.LOW):
             current_time = time.time()
             diff = int(current_time - start_time)
+            print(f"One of steering buttons is not pressed for {diff} seconds")
             if diff == gear_time:
                 if GPIO.input(22) == GPIO.LOW:
+                    print(f"One of steering buttons is not pressed for {diff} seconds, and the gear button is not pressed")
                     # send
                     GPIO.output(29, 1)
                     GPIO.output(31, 1)
                 else:
+                    print(f"One of steering buttons is not pressed for {diff} seconds, and the gear button is pressed")
                     start_time = time.time()
         else:
+            print("All is fine!")
             start_time = time.time()
 
 
