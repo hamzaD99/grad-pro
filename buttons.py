@@ -19,7 +19,7 @@ try:
             current_time = time.time()
             diff = int(current_time - start_time)
             print(f"One of steering buttons is not pressed for {diff} seconds")
-            if diff == gear_time:
+            if diff <= gear_time:
                 if GPIO.input(22) == GPIO.LOW:
                     print(f"One of steering buttons is not pressed for {diff} seconds, and the gear button is not pressed")
                     # send
