@@ -7,9 +7,11 @@ def getChatId():
     return bot.getUpdates()
 def sendMessage(msg):
     bot.sendMessage(chat_id, msg)
+def sendPhoto(photo):
+    bot.sendPhoto(chat_id,photo)
 
 bot = telepot.Bot(os.getenv('BOT_TOKEN'))
 chat_id = os.getenv('CHAT_ID')
 
 # print(getChatId())
-sendMessage("Hello lhadslkdsadjas")
+# sendMessage("Hello lhadslkdsadjas")
