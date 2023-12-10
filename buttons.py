@@ -17,7 +17,7 @@ try:
             current_time = time.time()
             diff = int(current_time - start_time)
             print(f"One of steering buttons is not pressed for {diff} seconds")
-            if diff >= gear_time:
+            if diff >= gear_time or ((GPIO.input(15) == GPIO.LOW) and (GPIO.input(16) == GPIO.LOW)):
                 if diff % 10 == 0 or diff == gear_time:
                     print("Hamza HEllo")
                 GPIO.output(29, 1)
@@ -27,7 +27,7 @@ try:
             GPIO.output(29, 0)
             GPIO.output(31, 0)
             start_time = time.time()
-
+        time.sleep(1)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
