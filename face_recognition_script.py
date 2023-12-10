@@ -48,7 +48,8 @@ while True:
                 valid = True
                 break
         if valid:
-            start_time = time.time()
+            print("Welcome!")
+            break
         else:
             current_time = time.time()
             diff = int(current_time - start_time)
