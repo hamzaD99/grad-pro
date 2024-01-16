@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import telegram_sender
-
+telegram_sender.sendMessage("HIIIIIIIIIIIIII")
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_UP)
