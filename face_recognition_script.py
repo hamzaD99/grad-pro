@@ -6,14 +6,19 @@ import telegram_sender
 import os
 
 video_capture = cv2.VideoCapture(0)
-obama_image = face_recognition.load_image_file("./Authorized Drivers/President_Barack_Obama.jpg")
-obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
+auth_driver = face_recognition.load_image_file("./Authorized Drivers/Hamza.jpeg")
+auth_driver_face_encoding = face_recognition.face_encodings(auth_driver)[0]
+
+auth_driver_2 = face_recognition.load_image_file("./Authorized Drivers/Big Boss.jpeg")
+auth_driver_face_encoding_2 = face_recognition.face_encodings(auth_driver_2)[0]
 
 known_face_encodings = [
-    obama_face_encoding,
+    auth_driver_face_encoding,
+    auth_driver_face_encoding_2
 ]
 known_face_names = [
-    "Barack Obama"
+    "Hamza Maen",
+    "Big Boss"
 ]
 face_locations = []
 face_encodings = []
