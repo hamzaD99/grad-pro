@@ -15,8 +15,15 @@ try:
         if (GPIO.input(15) == GPIO.HIGH) or (GPIO.input(16) == GPIO.HIGH):
             current_time = time.time()
             diff = int(current_time - start_time)
+            if (GPIO.input(15) == GPIO.HIGH) and (GPIO.input(16) == GPIO.HIGH):
+                print(f"The steering buttons are not pressed!!")
+                if diff % 10 == 0:
+                    telegram_sender.sendMessage("The driver is not driving safely!")
+                GPIO.output(29, 1)
+                GPIO.output(36, 1)
+                continue
             print(f"One of steering buttons is not pressed for {diff} seconds")
-            if diff >= diff_allowed or ((GPIO.input(15) == GPIO.HIGH) and (GPIO.input(16) == GPIO.HIGH)):
+            if diff >= diff_allowed:
                 if diff % 10 == 0:
                     telegram_sender.sendMessage("The driver is not driving safely!")
                 GPIO.output(29, 1)
