@@ -6,7 +6,7 @@ import telegram_sender
 import os
 
 video_capture = cv2.VideoCapture(0)
-obama_image = face_recognition.load_image_file("./grad-pro/Authorized Drivers/President_Barack_Obama.jpg")
+obama_image = face_recognition.load_image_file("./Authorized Drivers/President_Barack_Obama.jpg")
 obama_face_encoding = face_recognition.face_encodings(obama_image)[0]
 
 known_face_encodings = [
