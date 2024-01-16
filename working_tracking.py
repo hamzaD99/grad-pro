@@ -6,8 +6,8 @@ start_time = time.time()
 sent = False
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.output(31, 0)
 greenLed = GPIO.setup(31, GPIO.OUT)
+GPIO.output(31, 0)
 
 while True:
     current_time = time.time()
