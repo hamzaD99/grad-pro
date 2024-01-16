@@ -6,6 +6,7 @@ start_time = time.time()
 sent = False
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
+GPIO.output(31, 0)
 greenLed = GPIO.setup(31, GPIO.OUT)
 
 while True:
@@ -15,5 +16,6 @@ while True:
     # if diff >= 28800:
         GPIO.output(31, 1)
         if not sent:
+            print("Your shift is over!")
             telegram_sender.sendMessage("Your shift is over!")
             sent = True
