@@ -9,13 +9,17 @@ GPIO.setmode(GPIO.BOARD)
 greenLed = GPIO.setup(31, GPIO.OUT)
 GPIO.output(31, 0)
 
-while True:
-    current_time = time.time()
-    diff = int(current_time - start_time)
-    if diff >= 5:
-    # if diff >= 28800:
-        GPIO.output(31, 1)
-        if not sent:
-            print("Your shift is over!")
-            telegram_sender.sendMessage("Your shift is over!")
-            sent = True
+try:
+    while True:
+        current_time = time.time()
+        diff = int(current_time - start_time)
+        if diff >= 5:
+        # if diff >= 28800:
+            GPIO.output(31, 1)
+            if not sent:
+                print("Your shift is over!")
+                telegram_sender.sendMessage("Your shift is over!")
+                sent = True
+except KeyboardInterrupt:
+    GPIO.cleanup()
+    print("pins are clean") 
