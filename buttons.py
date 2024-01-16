@@ -21,6 +21,7 @@ try:
                     telegram_sender.sendMessage("The driver is not driving safely!")
                 GPIO.output(29, 1)
                 GPIO.output(36, 1)
+                time.sleep(1)
                 continue
             print(f"One of steering buttons is not pressed for {diff} seconds")
             if diff >= diff_allowed:
