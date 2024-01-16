@@ -25,7 +25,7 @@ face_encodings = []
 face_names = []
 process_this_frame = True
 start_time = time.time()
-time_diff = 5
+time_diff = 10
 
 while True:
     ret, frame = video_capture.read()

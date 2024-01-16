@@ -8,7 +8,6 @@ leftSwitch = GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 rightSwitch = GPIO.setup(16, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 gearSwitch = GPIO.setup(22, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 redLed = GPIO.setup(29, GPIO.OUT)
-greenLed = GPIO.setup(31, GPIO.OUT)
 buzzer = GPIO.setup(36, GPIO.OUT)
 start_time = time.time()
 gear_time = 5
@@ -22,11 +21,11 @@ try:
                 if diff % 10 == 0 or diff == gear_time:
                     telegram_sender.sendMessage("The driver is not driving safely!")
                 GPIO.output(29, 1)
-                GPIO.output(31, 1)
+                GPIO.output(36, 1)
         else:
             print("All is fine!")
             GPIO.output(29, 0)
-            GPIO.output(31, 0)
+            GPIO.output(36, 0)
             start_time = time.time()
         time.sleep(1)
 
