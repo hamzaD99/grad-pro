@@ -13,7 +13,6 @@ try:
     while True:
         current_time = time.time()
         diff = int(current_time - start_time)
-        # if diff >= 5:
         if diff >= 28800:
             GPIO.output(31, 1)
             if not sent:
