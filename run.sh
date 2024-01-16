@@ -1,4 +1,3 @@
-source ../env/bin/activate
 nohup python3 face_recognition_script.py &
 wait $!
 nohup python3 buttons.py &
